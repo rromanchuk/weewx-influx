@@ -10,7 +10,7 @@ def loader():
 class InfluxInstaller(ExtensionInstaller):
     def __init__(self):
         super(InfluxInstaller, self).__init__(
-            version="0.15",
+            version="0.20",
             name='influx',
             description='Upload weather data to Influx.',
             author="Matthew Wall",
@@ -19,7 +19,9 @@ class InfluxInstaller(ExtensionInstaller):
             config={
                 'StdRESTful': {
                     'Influx': {
-                        'database': 'INSERT_DATABASE_HERE',
-                        'host': 'INSERT_HOST_HERE'}}},
+                        'server_url': 'http://localhost:8086',
+                        'org': 'replace_me',
+                        'bucket': 'replace_me',
+                        'token': 'replace_me'}}},
             files=[('bin/user', ['bin/user/influx.py'])]
             )
