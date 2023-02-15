@@ -17,8 +17,10 @@ wee_extension --install weewx-influx.zip
 
 [StdRESTful]
     [[Influx]]
-        host = HOSTNAME
-        database = DATABASE
+        server_url = http://localhost:8086
+        org = ORG_NAME
+        bucket = BUCKET
+        token = TOKEN
 
 4) restart weewx:
 
@@ -48,10 +50,10 @@ Here is a complete enumeration of options.  Specify only those that you need.
         port = 8086
         host = example.com                         # specify host OR server_url
         server_url = https://example.com:443       # specify server_url OR host
-        username = USERNAME
-        password = PASSWORD
-        dbadmin_username = DATABASE_ADMINISTRATOR_USERNAME
-        dbadmin_password = DATABASE_ADMINISTRATOR_PASSWORD
+        org = my_org
+        bucket = weewx
+        token = my_token_for_my_org_and_weebx_bucket
+
         binding = (loop | archive)                 # default is archive
         measurement = label                        # default is record
         tags = station=A,field=C                   # optional
